@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+    </h:head>
+    <h:body>
+        <p:panel header="Employee Edit Form" style="width: 400;">
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="2">
+				<h:outputLabel for="#{empBean.selectedEmp.employeeId}" value="Employee id"/>
+				<h:inputText value="#{empBean.selectedEmp.employeeId}" label="Employee id"></h:inputText>
+                                <h:outputLabel for="#{empBean.selectedEmp.lastName}" value="Lastname"/>
+				<h:inputText value="#{empBean.selectedEmp.lastName}" label="Lastname"></h:inputText>
+                                <h:outputLabel for="#{empBean.selectedEmp.firstName}" value="FirstName"/>
+				<h:inputText value="#{empBean.selectedEmp.firstName}" label="FirstName"></h:inputText>
+                                <h:outputLabel for="#{empBean.selectedEmp.email}" value="Email"/>
+				<h:inputText value="#{empBean.selectedEmp.email}" label="Emal"></h:inputText>
+                                <h:outputLabel for="#{empBean.selectedEmp.salary}" value="Salary"/>
+				<h:inputText value="#{empBean.selectedEmp.salary}" label="Salary"></h:inputText>
+			</h:panelGrid>
+                        <p:commandButton value="Commit" rendered="#{true}"
+                             action="#{empBean.saveEmpAction}">
+                        </p:commandButton>&nbsp;
+                        <p:commandButton value="Cancel" rendered="#{true}" 
+                                         action="#{empBean.cancelEmpAction()}">
+                        </p:commandButton>
+                    </h:form>
+            </p:panel>
+	
+          
+           
+    </h:body>
+</html>

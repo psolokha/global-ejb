@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+    </h:head>
+    <h:body>
+      <p:panel header="Employees Search Form" style="width: 700;">
+		<h:form>
+			<h:panelGrid columns="4" cellpadding="2">
+                            <h:outputLabel for="#{empBean.mid}" value="Enter employee id"/>
+                            <h:inputText value="#{empBean.mid}" label="Enter employee id"></h:inputText>
+                            <h:commandButton  value="search" action="#{empBean.searchEmpAction()}"></h:commandButton>
+                            <h:commandButton  value="edit" action="#{empBean.editEmpAction()}" rendered="#{empBean.rendered}">   </h:commandButton>
+			</h:panelGrid>
+                    
+		</h:form>
+	  </p:panel>
+        <h:form>
+         <p:dataTable var="emp" value="#{empBean.empList}" selectionMode = "single" 
+                      selection="#{empBean.selectedEmp}" rowKey="#{emp.employeeId}"
+                      
+                      >
+              <p:ajax event="rowSelect" listener="#{empBean.onRowSelect}"/>
+                     
+            <p:column headerText="Id">
+                <h:outputText value="#{emp.employeeId}" />
+            </p:column>
+ 
+            <p:column headerText="Last Name">
+                <h:outputText value="#{emp.lastName}" />
+            </p:column>
+ 
+            <p:column headerText="First name">
+                <h:outputText value="#{emp.firstName}" />
+            </p:column>
+            <p:column headerText="Salary">
+                <h:outputText value="#{emp.salary}" />
+            </p:column>
+             <p:column headerText="Email">
+                <h:outputText value="#{emp.email}" />
+            </p:column>
+         </p:dataTable>
+       </h:form>
+    </h:body>
+</html>
